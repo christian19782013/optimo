@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabReferenteViewDlg" widgetVar="ImalabReferenteViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewImalabReferenteTitle}">
+            <h:form id="ImalabReferenteViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabReferenteController.selected != null}">
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_id}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.id}" title="#{bundle.ViewImalabReferenteTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_nombre}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.nombre}" title="#{bundle.ViewImalabReferenteTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_apellido}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.apellido}" title="#{bundle.ViewImalabReferenteTitle_apellido}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_email}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.email}" title="#{bundle.ViewImalabReferenteTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_telefono}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.telefono}" title="#{bundle.ViewImalabReferenteTitle_telefono}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_celular}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.celular}" title="#{bundle.ViewImalabReferenteTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_cc}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.cc}" title="#{bundle.ViewImalabReferenteTitle_cc}"/>
+                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_porcentajeReferente}"/>
+                        <h:outputText value="#{imalabReferenteController.selected.porcentajeReferente}" title="#{bundle.ViewImalabReferenteTitle_porcentajeReferente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ImalabReferenteViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
