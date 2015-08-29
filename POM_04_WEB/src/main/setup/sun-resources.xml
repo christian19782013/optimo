@@ -5,7 +5,5 @@
     <property name="URL" value="jdbc:oracle:thin:@FLIA-RUIZ:1521:ORCL"/>
     <property name="User" value="M02"/>
     <property name="Password" value="M02"/>
-    
-    
   </jdbc-connection-pool>
 </resources>
