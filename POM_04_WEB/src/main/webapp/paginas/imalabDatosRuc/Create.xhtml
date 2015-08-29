@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabDatosRucCreateDlg" widgetVar="ImalabDatosRucCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateImalabDatosRucTitle}">
+            <h:form id="ImalabDatosRucCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabDatosRucController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabDatosRucController.selected.id}" title="#{bundle.CreateImalabDatosRucTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabDatosRucRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_ruc}" for="ruc" />
+                        <p:inputText id="ruc" value="#{imalabDatosRucController.selected.ruc}" title="#{bundle.CreateImalabDatosRucTitle_ruc}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_razonSocial}" for="razonSocial" />
+                        <p:inputText id="razonSocial" value="#{imalabDatosRucController.selected.razonSocial}" title="#{bundle.CreateImalabDatosRucTitle_razonSocial}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{imalabDatosRucController.selected.telefono}" title="#{bundle.CreateImalabDatosRucTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{imalabDatosRucController.selected.email}" title="#{bundle.CreateImalabDatosRucTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDatosRucLabel_autorizacionsri}" for="autorizacionsri" />
+                        <p:inputText id="autorizacionsri" value="#{imalabDatosRucController.selected.autorizacionsri}" title="#{bundle.CreateImalabDatosRucTitle_autorizacionsri}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabDatosRucController.create}" value="#{bundle.Save}" update="display,:ImalabDatosRucListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabDatosRucCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabDatosRucCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

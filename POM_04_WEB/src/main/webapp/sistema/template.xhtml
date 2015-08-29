@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+
+        <div id="top" class="top">
+            <ui:insert name="top">Top</ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">Left</ui:insert>
+            </div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">
+
+
+         
+
+                        <h:form id="ImalabClienteListForm">
+                            <p:panel header="#{bundle.ListImalabClienteTitle}">
+                                <p:dataTable id="datalist" value="#{imalabClienteController.items}" var="item"
+                                             selectionMode="single" selection="#{imalabClienteController.selected}"
+                                             paginator="true"
+                                             rowKey="#{item.id}"
+                                             rows="10"
+                                             rowsPerPageTemplate="10,20,30,40,50"
+                                             >
+
+                                    <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                                    <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_id}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.id}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_rucCedula}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.rucCedula}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_apellidos}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.apellidos}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_nombres}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.nombres}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_direccion}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.direccion}"/>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="#{bundle.ListImalabClienteTitle_email}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.email}"/>
+                                    </p:column>
+                                    <f:facet name="footer">
+                                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabClienteController.prepareCreate}" update=":ImalabClienteCreateForm" oncomplete="PF('ImalabClienteCreateDialog').show()"/>
+                                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ImalabClienteViewForm" oncomplete="PF('ImalabClienteViewDialog').show()" disabled="#{empty imalabClienteController.selected}"/>
+                                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ImalabClienteEditForm" oncomplete="PF('ImalabClienteEditDialog').show()" disabled="#{empty imalabClienteController.selected}"/>
+                                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{imalabClienteController.destroy}" update=":growl,datalist" disabled="#{empty imalabClienteController.selected}"/>
+                                    </f:facet>
+                                </p:dataTable>
+                            </p:panel>
+                        </h:form>
+
+
+                </ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

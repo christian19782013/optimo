@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabDetalleCompraCreateDlg" widgetVar="ImalabDetalleCompraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateImalabDetalleCompraTitle}">
+            <h:form id="ImalabDetalleCompraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabDetalleCompraController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabDetalleCompraController.selected.id}" title="#{bundle.CreateImalabDetalleCompraTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabDetalleCompraRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{imalabDetalleCompraController.selected.cantidad}" title="#{bundle.CreateImalabDetalleCompraTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateImalabDetalleCompraRequiredMessage_cantidad}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{imalabDetalleCompraController.selected.precio}" title="#{bundle.CreateImalabDetalleCompraTitle_precio}" required="true" requiredMessage="#{bundle.CreateImalabDetalleCompraRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_anulado}" for="anulado" />
+                        <p:inputText id="anulado" value="#{imalabDetalleCompraController.selected.anulado}" title="#{bundle.CreateImalabDetalleCompraTitle_anulado}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{imalabDetalleCompraController.selected.observacion}" title="#{bundle.CreateImalabDetalleCompraTitle_observacion}" />
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_imalabCabecera}" for="imalabCabecera" />
+                        <p:selectOneMenu id="imalabCabecera" value="#{imalabDetalleCompraController.selected.imalabCabecera}" required="true" requiredMessage="#{bundle.EditImalabDetalleCompraRequiredMessage_imalabCabecera}">
+                            <f:selectItems value="#{imalabCabeceraController.itemsAvailableSelectOne}"
+                                           var="imalabCabeceraItem"
+                                           itemValue="#{imalabCabeceraItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_imalabPrecio}" for="imalabPrecio" />
+                        <p:selectOneMenu id="imalabPrecio" value="#{imalabDetalleCompraController.selected.imalabPrecio}" >
+                            <f:selectItems value="#{imalabPrecioController.itemsAvailableSelectOne}"
+                                           var="imalabPrecioItem"
+                                           itemValue="#{imalabPrecioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateImalabDetalleCompraLabel_imalabReferente}" for="imalabReferente" />
+                        <p:selectOneMenu id="imalabReferente" value="#{imalabDetalleCompraController.selected.imalabReferente}" required="true" requiredMessage="#{bundle.EditImalabDetalleCompraRequiredMessage_imalabReferente}">
+                            <f:selectItems value="#{imalabReferenteController.itemsAvailableSelectOne}"
+                                           var="imalabReferenteItem"
+                                           itemValue="#{imalabReferenteItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabDetalleCompraController.create}" value="#{bundle.Save}" update="display,:ImalabDetalleCompraListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabDetalleCompraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabDetalleCompraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

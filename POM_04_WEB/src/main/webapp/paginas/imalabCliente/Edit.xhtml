@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabClienteEditDlg" widgetVar="ImalabClienteEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditImalabClienteTitle}">
+            <h:form id="ImalabClienteEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabClienteController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabClienteController.selected.id}" title="#{bundle.EditImalabClienteTitle_id}" required="true" requiredMessage="#{bundle.EditImalabClienteRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_rucCedula}" for="rucCedula" />
+                        <p:inputText id="rucCedula" value="#{imalabClienteController.selected.rucCedula}" title="#{bundle.EditImalabClienteTitle_rucCedula}" />
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{imalabClienteController.selected.apellidos}" title="#{bundle.EditImalabClienteTitle_apellidos}" />
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{imalabClienteController.selected.nombres}" title="#{bundle.EditImalabClienteTitle_nombres}" />
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{imalabClienteController.selected.direccion}" title="#{bundle.EditImalabClienteTitle_direccion}" />
+                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{imalabClienteController.selected.email}" title="#{bundle.EditImalabClienteTitle_email}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabClienteController.update}" value="#{bundle.Save}" update="display,:ImalabClienteListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ImalabClienteEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabClienteEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

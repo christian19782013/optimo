@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabPrecioCreateDlg" widgetVar="ImalabPrecioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateImalabPrecioTitle}">
+            <h:form id="ImalabPrecioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabPrecioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabPrecioController.selected.id}" title="#{bundle.CreateImalabPrecioTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabPrecioRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_fechaFijaPrecio}" for="fechaFijaPrecio" />
+                        <p:calendar id="fechaFijaPrecio" pattern="MM/dd/yyyy HH:mm:ss" value="#{imalabPrecioController.selected.fechaFijaPrecio}" title="#{bundle.EditImalabPrecioTitle_fechaFijaPrecio}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_fechaFijaPrecio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{imalabPrecioController.selected.valor}" title="#{bundle.CreateImalabPrecioTitle_valor}" />
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_imalabDesciento}" for="imalabDesciento" />
+                        <p:selectOneMenu id="imalabDesciento" value="#{imalabPrecioController.selected.imalabDesciento}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_imalabDesciento}">
+                            <f:selectItems value="#{imalabDescientoController.itemsAvailableSelectOne}"
+                                           var="imalabDescientoItem"
+                                           itemValue="#{imalabDescientoItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_imalabServicios}" for="imalabServicios" />
+                        <p:selectOneMenu id="imalabServicios" value="#{imalabPrecioController.selected.imalabServicios}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_imalabServicios}">
+                            <f:selectItems value="#{imalabServiciosController.itemsAvailableSelectOne}"
+                                           var="imalabServiciosItem"
+                                           itemValue="#{imalabServiciosItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabPrecioController.create}" value="#{bundle.Save}" update="display,:ImalabPrecioListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabPrecioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabPrecioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

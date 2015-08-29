@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabReferenteCreateDlg" widgetVar="ImalabReferenteCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateImalabReferenteTitle}">
+            <h:form id="ImalabReferenteCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabReferenteController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabReferenteController.selected.id}" title="#{bundle.CreateImalabReferenteTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabReferenteRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{imalabReferenteController.selected.nombre}" title="#{bundle.CreateImalabReferenteTitle_nombre}" required="true" requiredMessage="#{bundle.CreateImalabReferenteRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_apellido}" for="apellido" />
+                        <p:inputText id="apellido" value="#{imalabReferenteController.selected.apellido}" title="#{bundle.CreateImalabReferenteTitle_apellido}" required="true" requiredMessage="#{bundle.CreateImalabReferenteRequiredMessage_apellido}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{imalabReferenteController.selected.email}" title="#{bundle.CreateImalabReferenteTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{imalabReferenteController.selected.telefono}" title="#{bundle.CreateImalabReferenteTitle_telefono}" />
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{imalabReferenteController.selected.celular}" title="#{bundle.CreateImalabReferenteTitle_celular}" />
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_cc}" for="cc" />
+                        <p:inputText id="cc" value="#{imalabReferenteController.selected.cc}" title="#{bundle.CreateImalabReferenteTitle_cc}" />
+                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_porcentajeReferente}" for="porcentajeReferente" />
+                        <p:inputText id="porcentajeReferente" value="#{imalabReferenteController.selected.porcentajeReferente}" title="#{bundle.CreateImalabReferenteTitle_porcentajeReferente}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabReferenteController.create}" value="#{bundle.Save}" update="display,:ImalabReferenteListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabReferenteCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabReferenteCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
