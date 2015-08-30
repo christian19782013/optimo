@@ -14,7 +14,7 @@
         <h:body>
 
             <h:form>
-                <p:selectOneMenu  id="iterator" value="#{conve.imalabCabecera}"  converter="convv"  >
+                <p:selectOneMenu  id="iterator" value="#{conve.imalabCabecera}"   >
                     <f:selectItem itemLabel="Choose item" noSelectionOption="true" />
                     <f:selectItems value="#{conve.itemsAvailableSelectMany}"  var="entity"  itemValue="#{entity}" itemLabel="#{entity.imalabCliente.apellidos}" />
                     <f:ajax event="change"  />
