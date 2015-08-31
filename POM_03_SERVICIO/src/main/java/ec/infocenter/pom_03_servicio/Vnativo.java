@@ -32,7 +32,7 @@ public class Vnativo implements VnativoRemote {
         String sql
                 = "select * from V_CABE_DETA";
         Query query = em.createNativeQuery(sql, VCabeDeta.class);
-        List<VCabeDeta> resultList = query.getResultList();
+        List resultList = query.getResultList();
         return resultList;
     }
 }
