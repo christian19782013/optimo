@@ -14,6 +14,7 @@ ec\infocenter\pom_04_web\jsfclases\ImalabDetalleCompraController$ImalabDetalleCo
 ec\infocenter\pom_04_web\jsfclases\ImalabPrecioController$ImalabPrecioControllerConverter.class
 ec\infocenter\pom_04_web\converter\Conve.class
 ec\infocenter\pom_04_web\jsfclases\ImalabDetalleCompraController.class
+ec\infocenter\pom_04_web\jsfclases\ImalabCabeceraController$ImalabCabeceraControllerConverter.class
 ec\infocenter\pom_04_web\jsfclases\ImalabServiciosController$ImalabServiciosControllerConverter.class
 ec\infocenter\pom_04_web\jsfclases\ImalabClienteController$ImalabClienteControllerConverter.class
 ec\infocenter\pom_04_web\jsfclases\util\JsfUtil.class

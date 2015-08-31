@@ -11,6 +11,7 @@
     <class>ec.infocenter.pom_01_ldomain.ImalabReferente</class>
     <class>ec.infocenter.pom_01_ldomain.ImalabServicios</class>
     <class>ec.infocenter.pom_01_ldomain.ImalabTipoExamen</class>
+    <class>ec.infocenter.pom_01_ldomain.VCabeDeta</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
