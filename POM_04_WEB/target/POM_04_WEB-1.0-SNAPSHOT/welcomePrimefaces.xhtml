@@ -19,7 +19,59 @@
                     <f:selectItems value="#{conve.itemsAvailableSelectMany}"  var="entity"  itemValue="#{entity}" itemLabel="#{entity.imalabCliente.apellidos}" />
                     <f:ajax event="change"  />
                 </p:selectOneMenu>
+
+                <h1><h:outputText value="List"/></h1>
+                #{newJSFManagedBean.lvn}
+                <p:dataTable value="#{newJSFManagedBean.lvn}" var="item">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="FechaFactura"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fechaFactura}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="NumeroFactura"/>
+                        </f:facet>
+                        <h:outputText value="#{item.numeroFactura}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Cantidad"/>
+                        </f:facet>
+                        <h:outputText value="#{item.cantidad}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Precio"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precio}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Anulado"/>
+                        </f:facet>
+                        <h:outputText value="#{item.anulado}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Observacion"/>
+                        </f:facet>
+                        <h:outputText value="#{item.observacion}"/>
+                    </p:column>
+                </p:dataTable>
+
             </h:form>
+
+
+
+
         </h:body>
     </f:view>
 </html>

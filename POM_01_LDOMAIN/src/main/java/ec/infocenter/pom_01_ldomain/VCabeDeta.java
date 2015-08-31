@@ -12,6 +12,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -27,7 +28,9 @@ import javax.persistence.TemporalType;
 @NamedQueries({
     @NamedQuery(name = "VCabeDeta.findAll", query = "SELECT v FROM VCabeDeta v")})
 public class VCabeDeta implements Serializable {
+
     private static final long serialVersionUID = 1L;
+    @Id
     @Basic(optional = false)
     @Column(name = "ID")
     private BigInteger id;
@@ -106,5 +109,5 @@ public class VCabeDeta implements Serializable {
     public void setObservacion(String observacion) {
         this.observacion = observacion;
     }
-    
+
 }
