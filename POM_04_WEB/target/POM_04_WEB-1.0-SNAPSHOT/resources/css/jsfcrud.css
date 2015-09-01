@@ -1,5 +1,8 @@
 .ui-widget {
-    font-size: 12px !important;
+    font-size: 10px !important;
+    width: 70%;
+    alignment-adjust: central;
+   
 }
 .ui-layout-north {
     z-index: 20 !important;

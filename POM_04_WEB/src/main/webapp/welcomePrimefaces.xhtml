@@ -9,6 +9,8 @@
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>PrimeFaces</title>
+                <h:outputStylesheet library="css" name="jsfcrud.css"/>
+                <h:outputScript library="js" name="jsfcrud.js"/>
             </f:facet>
         </h:head>
         <h:body>
@@ -24,54 +26,61 @@
                 <p:commandButton id="cb1" process="@form"  update="@form"  icon="ui-icon-search"/>
 
                 <h1><h:outputText value="List"/></h1>
-                #{newJSFManagedBean.lvn}
-                <p:dataTable
-                    id="datalist"
-                    value="#{newJSFManagedBean.lvn}" var="item">
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Id"/>
-                        </f:facet>
-                        <h:outputText value="#{item.id}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="FechaFactura"/>
-                        </f:facet>
-                        <h:outputText value="#{item.fechaFactura}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="NumeroFactura"/>
-                        </f:facet>
-                        <h:outputText value="#{item.numeroFactura}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Cantidad"/>
-                        </f:facet>
-                        <h:outputText value="#{item.cantidad}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Precio"/>
-                        </f:facet>
-                        <h:outputText value="#{item.precio}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Anulado"/>
-                        </f:facet>
-                        <h:outputText value="#{item.anulado}"/>
-                    </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Observacion"/>
-                        </f:facet>
-                        <h:outputText value="#{item.observacion}"/>
-                    </p:column>
-                </p:dataTable>
+                <center>
+                    <p:dataTable
+                        id="datalist"
+                        value="#{newJSFManagedBean.lvn}" var="item"
+                        selection="#{newJSFManagedBean.selected}"
+                        selectionMode="single" 
+                        rowKey="#{item.id}"
 
+                        >
+                        <p:ajax event="rowSelect"   update="@form"/>
+                        <p:ajax event="rowUnselect" update="@form"/>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Id"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="FechaFactura"/>
+                            </f:facet>
+                            <h:outputText value="#{item.fechaFactura}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="NumeroFactura"/>
+                            </f:facet>
+                            <h:outputText value="#{item.numeroFactura}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Cantidad"/>
+                            </f:facet>
+                            <h:outputText value="#{item.cantidad}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Precio"/>
+                            </f:facet>
+                            <h:outputText value="#{item.precio}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Anulado"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anulado}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Observacion"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observacion}"/>
+                        </p:column>
+                    </p:dataTable>
+                </center>
             </h:form>
 
 
