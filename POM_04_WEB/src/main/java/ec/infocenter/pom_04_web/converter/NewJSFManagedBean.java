@@ -43,6 +43,7 @@ public class NewJSFManagedBean implements Serializable {
     @EJB
     private VnativoRemote vnativo;
     private List<VCabeDeta> lvn = new ArrayList<>();
+    private VCabeDeta selected;
 
     /**
      * Creates a new instance of NewJSFManagedBean
@@ -57,6 +58,23 @@ public class NewJSFManagedBean implements Serializable {
         lvn.clear();
         lvn = vnativo.busca(valortexto);
         return lvn;
+    }
+
+    /**
+     * @return the selected
+     */
+    public VCabeDeta getSelected() {
+        return selected;
+    }
+
+    /**
+     * @param selected the selected to set
+     */
+    public void setSelected(VCabeDeta selected) {
+        System.out.println("select:"+selected.getId());
+        System.out.println("select:"+selected.getNumeroFactura());
+        System.out.println("select:"+selected.getObservacion());
+        this.selected = selected;
     }
 
 }
