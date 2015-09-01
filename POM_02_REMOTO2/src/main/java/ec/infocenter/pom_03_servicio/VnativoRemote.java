@@ -17,6 +17,7 @@ import javax.ejb.Remote;
 @Remote
 public interface VnativoRemote {
 
-    public List<VCabeDeta> busca();
+
+    public List<VCabeDeta> busca(String texto);
     
 }

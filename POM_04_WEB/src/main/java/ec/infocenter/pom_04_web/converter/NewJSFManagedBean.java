@@ -9,7 +9,6 @@ import ec.infocenter.pom_01_ldomain.VCabeDeta;
 import ec.infocenter.pom_03_servicio.VnativoRemote;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -23,6 +22,24 @@ import javax.faces.view.ViewScoped;
 @ViewScoped
 public class NewJSFManagedBean implements Serializable {
 
+    String valortexto = "";
+
+    public String getValortexto() {
+        return valortexto;
+    }
+
+    public void setValortexto(String valortexto) {
+        this.valortexto = valortexto;
+    }
+
+    public VnativoRemote getVnativo() {
+        return vnativo;
+    }
+
+    public void setVnativo(VnativoRemote vnativo) {
+        this.vnativo = vnativo;
+    }
+
     @EJB
     private VnativoRemote vnativo;
     private List<VCabeDeta> lvn = new ArrayList<>();
@@ -33,26 +50,12 @@ public class NewJSFManagedBean implements Serializable {
     public NewJSFManagedBean() {
     }
 
-  
-
     /**
      * @return the lvn
      */
     public List<VCabeDeta> getLvn() {
         lvn.clear();
-        lvn=vnativo.busca();  
-//        System.out.println("lvn = " + lvn.size());
-//        System.out.println("lvn = " + lvn.size());
-//        System.out.println("lvn = " + lvn.size());
-//        Iterator<VCabeDeta> iterator = lvn.iterator();
-//        while (iterator.hasNext()) {
-//            VCabeDeta next = iterator.next();
-//            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
-//            System.out.println("next.getNumeroFactura():"+next.getNumeroFactura());
-//            System.out.println("next.getObservacion():"+next.getObservacion());
-//            System.out.println("next.getCantidad():"+next.getCantidad());
-//            System.out.println("next.getFechaFactura():"+next.getFechaFactura());
-//        }
+        lvn = vnativo.busca(valortexto);
         return lvn;
     }
 

@@ -20,6 +20,9 @@
                     <f:ajax event="change"  />
                 </p:selectOneMenu>
 
+                <p:inputText value="#{newJSFManagedBean.valortexto}"/>
+                <p:commandButton id="cb1" process="@form"  update="@form"  icon="ui-icon-search"/>
+
                 <h1><h:outputText value="List"/></h1>
                 #{newJSFManagedBean.lvn}
                 <p:dataTable value="#{newJSFManagedBean.lvn}" var="item">

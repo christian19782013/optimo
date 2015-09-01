@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 import javax.persistence.Basic;
+import javax.persistence.Cache;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,7 +28,9 @@ import javax.persistence.TemporalType;
 @Table(name = "V_CABE_DETA")
 @NamedQueries({
     @NamedQuery(name = "VCabeDeta.findAll", query = "SELECT v FROM VCabeDeta v")})
+
 public class VCabeDeta implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
     @Id
