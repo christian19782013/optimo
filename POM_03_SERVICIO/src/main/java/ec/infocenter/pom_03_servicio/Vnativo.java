@@ -6,6 +6,9 @@
 package ec.infocenter.pom_03_servicio;
 
 import ec.infocenter.pom_01_ldomain.VCabeDeta;
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 import javax.ejb.Stateless;
@@ -19,7 +22,7 @@ import javax.persistence.Query;
  */
 @Stateless
 @PermitAll
-public class Vnativo implements VnativoRemote {
+public class Vnativo implements VnativoRemote, Serializable {
 
     @PersistenceContext(unitName = "PU3")
     private EntityManager em;
@@ -29,10 +32,17 @@ public class Vnativo implements VnativoRemote {
     }
 
     public List<VCabeDeta> busca() {
-        String sql
-                = "select * from V_CABE_DETA";
-        Query query = em.createNativeQuery(sql, VCabeDeta.class);
-        List resultList = query.getResultList();
-        return resultList;
+//        String sql
+//                = "select * from V_CABE_DETA";
+//        Query query = em.createNativeQuery(sql, VCabeDeta.class);
+
+        List<VCabeDeta> l = new ArrayList<>();
+//        l = query.getResultList();
+        VCabeDeta vCabeDeta = new VCabeDeta();
+        vCabeDeta.setId(BigInteger.ONE);
+        vCabeDeta.setCantidad(BigInteger.ONE);
+
+        l.add(vCabeDeta);
+        return l;
     }
 }

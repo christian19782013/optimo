@@ -39,19 +39,20 @@ public class NewJSFManagedBean implements Serializable {
      * @return the lvn
      */
     public List<VCabeDeta> getLvn() {
+        lvn.clear();
         lvn=vnativo.busca();  
-        System.out.println("lvn = " + lvn.size());
-        System.out.println("lvn = " + lvn.size());
-        System.out.println("lvn = " + lvn.size());
-        Iterator<VCabeDeta> iterator = lvn.iterator();
-        while (iterator.hasNext()) {
-            VCabeDeta next = iterator.next();
-            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
-            System.out.println("next.getNumeroFactura():"+next.getNumeroFactura());
-            System.out.println("next.getObservacion():"+next.getObservacion());
-            System.out.println("next.getCantidad():"+next.getCantidad());
-            System.out.println("next.getFechaFactura():"+next.getFechaFactura());
-        }
+//        System.out.println("lvn = " + lvn.size());
+//        System.out.println("lvn = " + lvn.size());
+//        System.out.println("lvn = " + lvn.size());
+//        Iterator<VCabeDeta> iterator = lvn.iterator();
+//        while (iterator.hasNext()) {
+//            VCabeDeta next = iterator.next();
+//            System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++++++++");
+//            System.out.println("next.getNumeroFactura():"+next.getNumeroFactura());
+//            System.out.println("next.getObservacion():"+next.getObservacion());
+//            System.out.println("next.getCantidad():"+next.getCantidad());
+//            System.out.println("next.getFechaFactura():"+next.getFechaFactura());
+//        }
         return lvn;
     }
 
