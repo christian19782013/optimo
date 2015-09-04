@@ -26,18 +26,13 @@
                                      paginator="true"
                                      rowKey="#{item.id}"
                                      rows="10"
-                                     rowsPerPageTemplate="10,20,30,40,50" style="width: 33%"
+                                     rowsPerPageTemplate="10,20,30,40,50" style="width: 75%"
                                      >
 
                             <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                             <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListImalabServiciosTitle_id}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.id}"/>
-                            </p:column>
+                       
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="#{bundle.ListImalabServiciosTitle_descripExamenLab}"/>

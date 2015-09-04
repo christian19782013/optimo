@@ -6,6 +6,7 @@ import ec.infocenter.pom_04_web.jsfclases.util.JsfUtil.PersistAction;
 import ec.infocenter.pom_04_web.session.ImalabServiciosFacade;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -23,49 +24,50 @@ import javax.faces.convert.FacesConverter;
 @SessionScoped
 public class ImalabServiciosController implements Serializable {
 //ESTO ES UN COMENTARIO
+
     @EJB
     private ec.infocenter.pom_04_web.session.ImalabServiciosFacade ejbFacade;
     private List<ImalabServicios> items = null;
     private ImalabServicios selected;
-
+    
     public ImalabServiciosController() {
     }
-
+    
     public ImalabServicios getSelected() {
         return selected;
     }
-
+    
     public void setSelected(ImalabServicios selected) {
         this.selected = selected;
     }
-
+    
     protected void setEmbeddableKeys() {
     }
-
+    
     protected void initializeEmbeddableKey() {
     }
-
+    
     private ImalabServiciosFacade getFacade() {
         return ejbFacade;
     }
-
+    
     public ImalabServicios prepareCreate() {
         selected = new ImalabServicios();
         initializeEmbeddableKey();
         return selected;
     }
-
+    
     public void create() {
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("ImalabServiciosCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
-
+    
     public void update() {
         persist(PersistAction.UPDATE, ResourceBundle.getBundle("/Bundle").getString("ImalabServiciosUpdated"));
     }
-
+    
     public void destroy() {
         persist(PersistAction.DELETE, ResourceBundle.getBundle("/Bundle").getString("ImalabServiciosDeleted"));
         if (!JsfUtil.isValidationFailed()) {
@@ -73,19 +75,25 @@ public class ImalabServiciosController implements Serializable {
             items = null;    // Invalidate list of items to trigger re-query.
         }
     }
-
+    
     public List<ImalabServicios> getItems() {
         if (items == null) {
             items = getFacade().findAll();
         }
         return items;
     }
-
+    
     private void persist(PersistAction persistAction, String successMessage) {
         if (selected != null) {
             setEmbeddableKeys();
             try {
                 if (persistAction != PersistAction.DELETE) {
+                    if (persistAction.equals(PersistAction.CREATE)) {
+                        selected.setId(BigDecimal.ONE);
+                        getFacade().create(selected);
+                    } else {
+                        getFacade().edit(selected);
+                    }
                     getFacade().edit(selected);
                 } else {
                     getFacade().remove(selected);
@@ -108,22 +116,22 @@ public class ImalabServiciosController implements Serializable {
             }
         }
     }
-
+    
     public ImalabServicios getImalabServicios(java.math.BigDecimal id) {
         return getFacade().find(id);
     }
-
+    
     public List<ImalabServicios> getItemsAvailableSelectMany() {
         return getFacade().findAll();
     }
-
+    
     public List<ImalabServicios> getItemsAvailableSelectOne() {
         return getFacade().findAll();
     }
-
+    
     @FacesConverter(forClass = ImalabServicios.class)
     public static class ImalabServiciosControllerConverter implements Converter {
-
+        
         @Override
         public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
             if (value == null || value.length() == 0) {
@@ -133,19 +141,19 @@ public class ImalabServiciosController implements Serializable {
                     getValue(facesContext.getELContext(), null, "imalabServiciosController");
             return controller.getImalabServicios(getKey(value));
         }
-
+        
         java.math.BigDecimal getKey(String value) {
             java.math.BigDecimal key;
             key = new java.math.BigDecimal(value);
             return key;
         }
-
+        
         String getStringKey(java.math.BigDecimal value) {
             StringBuilder sb = new StringBuilder();
             sb.append(value);
             return sb.toString();
         }
-
+        
         @Override
         public String getAsString(FacesContext facesContext, UIComponent component, Object object) {
             if (object == null) {
@@ -159,7 +167,7 @@ public class ImalabServiciosController implements Serializable {
                 return null;
             }
         }
-
+        
     }
-
+    
 }
