@@ -14,4 +14,20 @@
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties/>
   </persistence-unit>
+  <persistence-unit name="DEFAULT_PU" transaction-type="JTA">
+    <jta-data-source>jdbc/sample</jta-data-source>
+    <class>ImalabCabecera</class>
+    <class>ImalabCliente</class>
+    <class>ImalabDatosRuc</class>
+    <class>ImalabDesciento</class>
+    <class>ImalabDetalleCompra</class>
+    <class>ImalabPrecio</class>
+    <class>ImalabReferente</class>
+    <class>ImalabServicios</class>
+    <class>ImalabTipoExamen</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+    </properties>
+  </persistence-unit>
 </persistence>

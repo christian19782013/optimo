@@ -6,9 +6,7 @@
 package ec.infocenter.pom_04_web.converter;
 
 import ec.infocenter.pom_01_ldomain.ImalabCabecera;
-import ec.infocenter.pom_04_web.session.ImalabCabeceraFacade;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.inject.Named;

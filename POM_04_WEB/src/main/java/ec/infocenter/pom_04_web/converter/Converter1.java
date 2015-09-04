@@ -51,4 +51,6 @@ public class Converter1 implements Converter {
     public List<ImalabCabecera> getItemsAvailableSelectMany() {
         return ejbFacade.findAll();
     }
+    public static final long serialVersionUID = 0L;
+
 }
