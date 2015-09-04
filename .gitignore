@@ -61,3 +61,4 @@ POM_04_WEB/target/POM_04_WEB-1.0-SNAPSHOT/template.xhtml
 *.properties
 POM_04_WEB/target/POM_04_WEB-1.0-SNAPSHOT/WEB-INF/classes/META-INF/persistence.xml
 /POM_01_LDOMAIN/target/
+/POM_02_REMOTO2/target/

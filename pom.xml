@@ -10,7 +10,7 @@
         <module>POM_03_SERVICIO</module>
         <module>POM_04_WEB</module>
         <module>POM_01_LDOMAIN</module>
- 
+        <module>POM_02_REMOTO2</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

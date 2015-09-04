@@ -6,11 +6,24 @@
         <artifactId>POM_01_LABS</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>POM_02_REMOTO</artifactId>
+    <artifactId>POM_02_REMOTO2</artifactId>
     <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>POM_01_LDOMAIN</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 </project>
-

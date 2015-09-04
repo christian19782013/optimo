@@ -1,6 +1,7 @@
 ec\infocenter\pom_04_web\jsfclases\ImalabDescientoController$ImalabDescientoControllerConverter.class
 ec\infocenter\pom_04_web\jsfclases\ImalabDescientoController.class
 ec\infocenter\pom_04_web\session\ImalabPrecioFacade.class
+ec\infocenter\pom_04_web\converter\NewJSFManagedBean.class
 ec\infocenter\pom_04_web\jsfclases\ImalabTipoExamenController$ImalabTipoExamenControllerConverter.class
 ec\infocenter\pom_04_web\session\ImalabClienteFacade.class
 ec\infocenter\pom_04_web\session\ImalabReferenteFacade.class
