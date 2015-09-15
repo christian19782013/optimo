@@ -15,6 +15,8 @@ import javax.persistence.Query;
 
 /**
  *
+ * 
+ * 
  * @author christian
  */
 @Stateless
