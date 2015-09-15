@@ -27,11 +27,11 @@
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
+                        <p:column >
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabTipoExamenTitle_id}"/>
+                                <h:outputText value="#{bundle.ListImalabTipoExamenTitle_grupo}"/>
                             </f:facet>
-                            <h:outputText value="#{item.id}"/>
+                            <h:outputText value="#{item.grupo}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -39,12 +39,7 @@
                             </f:facet>
                             <h:outputText value="#{item.descripcion}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabTipoExamenTitle_grupo}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.grupo}"/>
-                        </p:column>
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabTipoExamenController.prepareCreate}" update=":ImalabTipoExamenCreateForm" oncomplete="PF('ImalabTipoExamenCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ImalabTipoExamenViewForm" oncomplete="PF('ImalabTipoExamenViewDialog').show()" disabled="#{empty imalabTipoExamenController.selected}"/>
