@@ -12,8 +12,6 @@
             <h:form id="ImalabClienteEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabClienteController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditImalabClienteLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabClienteController.selected.id}" title="#{bundle.EditImalabClienteTitle_id}" required="true" requiredMessage="#{bundle.EditImalabClienteRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditImalabClienteLabel_rucCedula}" for="rucCedula" />
                         <p:inputText id="rucCedula" value="#{imalabClienteController.selected.rucCedula}" title="#{bundle.EditImalabClienteTitle_rucCedula}" />
                         <p:outputLabel value="#{bundle.EditImalabClienteLabel_apellidos}" for="apellidos" />

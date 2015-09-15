@@ -22,10 +22,11 @@ import javax.faces.convert.FacesConverter;
 @Named("imalabClienteController")
 @SessionScoped
 public class ImalabClienteController implements Serializable {
+    private static final long serialVersionUID = -1261750850944047547L;
 
     @EJB
-    private ec.infocenter.pom_04_web.session.ImalabClienteFacade ejbFacade;
-    private List<ImalabCliente> items = null;
+    private transient ec.infocenter.pom_04_web.session.ImalabClienteFacade ejbFacade;
+    private transient List<ImalabCliente> items = null;
     private ImalabCliente selected;
 
     public ImalabClienteController() {
