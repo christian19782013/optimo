@@ -22,13 +22,13 @@
                         <p:selectOneMenu id="imalabCliente" value="#{imalabCabeceraController.selected.imalabCliente}" >
                             <f:selectItems value="#{imalabClienteController.itemsAvailableSelectOne}"
                                            var="imalabClienteItem"
-                                           itemValue="#{imalabClienteItem}" itemLabel="#{imalabClienteItem.apellidos} #{imalabClienteItem.nombres}"/>
+                                           itemValue="#{imalabClienteItem}"/>
                         </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_imalabDatosRuc}" for="imalabDatosRuc" />
                         <p:selectOneMenu id="imalabDatosRuc" value="#{imalabCabeceraController.selected.imalabDatosRuc}" >
                             <f:selectItems value="#{imalabDatosRucController.itemsAvailableSelectOne}"
                                            var="imalabDatosRucItem"
-                                           itemValue="#{imalabDatosRucItem}"  itemLabel="#{imalabDatosRucItem.ruc}-#{imalabDatosRucItem.razonSocial}"  />
+                                           itemValue="#{imalabDatosRucItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imalabCabeceraController.create}" value="#{bundle.Save}" update="display,:ImalabCabeceraListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabCabeceraCreateDialog');"/>

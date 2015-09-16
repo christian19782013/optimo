@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VCabeDetaCreateDlg" widgetVar="VCabeDetaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateVCabeDetaTitle}">
+            <h:form id="VCabeDetaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{vCabeDetaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{vCabeDetaController.selected.id}" title="#{bundle.CreateVCabeDetaTitle_id}" required="true" requiredMessage="#{bundle.CreateVCabeDetaRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_fechaFactura}" for="fechaFactura" />
+                        <p:calendar id="fechaFactura" pattern="MM/dd/yyyy HH:mm:ss" value="#{vCabeDetaController.selected.fechaFactura}" title="#{bundle.EditVCabeDetaTitle_fechaFactura}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_numeroFactura}" for="numeroFactura" />
+                        <p:inputText id="numeroFactura" value="#{vCabeDetaController.selected.numeroFactura}" title="#{bundle.CreateVCabeDetaTitle_numeroFactura}" />
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_cantidad}" for="cantidad" />
+                        <p:inputText id="cantidad" value="#{vCabeDetaController.selected.cantidad}" title="#{bundle.CreateVCabeDetaTitle_cantidad}" required="true" requiredMessage="#{bundle.CreateVCabeDetaRequiredMessage_cantidad}"/>
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_precio}" for="precio" />
+                        <p:inputText id="precio" value="#{vCabeDetaController.selected.precio}" title="#{bundle.CreateVCabeDetaTitle_precio}" required="true" requiredMessage="#{bundle.CreateVCabeDetaRequiredMessage_precio}"/>
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_anulado}" for="anulado" />
+                        <p:inputText id="anulado" value="#{vCabeDetaController.selected.anulado}" title="#{bundle.CreateVCabeDetaTitle_anulado}" />
+                        <p:outputLabel value="#{bundle.CreateVCabeDetaLabel_observacion}" for="observacion" />
+                        <p:inputText id="observacion" value="#{vCabeDetaController.selected.observacion}" title="#{bundle.CreateVCabeDetaTitle_observacion}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{vCabeDetaController.create}" value="#{bundle.Save}" update="display,:VCabeDetaListForm:datalist,:growl" oncomplete="handleSubmit(args,'VCabeDetaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="VCabeDetaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

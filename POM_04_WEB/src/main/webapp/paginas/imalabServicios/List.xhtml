@@ -4,9 +4,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:pe="http://primefaces.org/ui/extensions"
-      >
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
 
@@ -16,54 +14,52 @@
         </ui:define>
 
         <ui:define name="body">
-            <center>
-                <h:form id="ImalabServiciosListForm">
+            <h:form id="ImalabServiciosListForm">
+                <p:panel header="#{bundle.ListImalabServiciosTitle}">
+                    <p:dataTable id="datalist" value="#{imalabServiciosController.items}" var="item"
+                                 selectionMode="single" selection="#{imalabServiciosController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.id}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
 
-                    <p:panel header="#{bundle.ListImalabServiciosTitle}">
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:dataTable id="datalist" value="#{imalabServiciosController.items}" var="item"
-                                     selectionMode="single" selection="#{imalabServiciosController.selected}"
-                                     paginator="true"
-                                     rowKey="#{item.id}"
-                                     rows="10"
-                                     rowsPerPageTemplate="10,20,30,40,50" style="width: 75%"
-                                     >
-
-                            <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                            <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListImalabServiciosTitle_imalabTipoExamen}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.imalabTipoExamen.descripcion}"/>
-                            </p:column>
-
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListImalabServiciosTitle_descripExamenLab}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.descripExamenLab}"/>
-                            </p:column>
-                            <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="#{bundle.ListImalabServiciosTitle_especificaciones}"/>
-                                </f:facet>
-                                <h:outputText value="#{item.especificaciones}"/>
-                            </p:column>
-
-                            <f:facet name="footer">
-                                <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabServiciosController.prepareCreate}" update=":ImalabServiciosCreateForm" oncomplete="PF('ImalabServiciosCreateDialog').show()"/>
-                                <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ImalabServiciosViewForm" oncomplete="PF('ImalabServiciosViewDialog').show()" disabled="#{empty imalabServiciosController.selected}"/>
-                                <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ImalabServiciosEditForm" oncomplete="PF('ImalabServiciosEditDialog').show()" disabled="#{empty imalabServiciosController.selected}"/>
-                                <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{imalabServiciosController.destroy}" update=":growl,datalist" disabled="#{empty imalabServiciosController.selected}"/>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListImalabServiciosTitle_id}"/>
                             </f:facet>
-                        </p:dataTable>
-
-                    </p:panel>
-
-                </h:form>
-            </center>
-
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListImalabServiciosTitle_descripExamenLab}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripExamenLab}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListImalabServiciosTitle_especificaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.especificaciones}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListImalabServiciosTitle_imalabTipoExamen}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.imalabTipoExamen}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabServiciosController.prepareCreate}" update=":ImalabServiciosCreateForm" oncomplete="PF('ImalabServiciosCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ImalabServiciosViewForm" oncomplete="PF('ImalabServiciosViewDialog').show()" disabled="#{empty imalabServiciosController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":ImalabServiciosEditForm" oncomplete="PF('ImalabServiciosEditDialog').show()" disabled="#{empty imalabServiciosController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{imalabServiciosController.destroy}" update=":growl,datalist" disabled="#{empty imalabServiciosController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
 
             <ui:include src="Create.xhtml"/>
             <ui:include src="Edit.xhtml"/>

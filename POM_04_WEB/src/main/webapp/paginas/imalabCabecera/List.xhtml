@@ -51,13 +51,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListImalabCabeceraTitle_imalabCliente}"/>
                             </f:facet>
-                            <h:outputText value="#{item.imalabCliente.apellidos} #{item.imalabCliente.nombres}"/>
+                            <h:outputText value="#{item.imalabCliente}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListImalabCabeceraTitle_imalabDatosRuc}"/>
                             </f:facet>
-                            <h:outputText value="#{item.imalabDatosRuc.ruc}-#{item.imalabDatosRuc.razonSocial}"/>
+                            <h:outputText value="#{item.imalabDatosRuc}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabCabeceraController.prepareCreate}" update=":ImalabCabeceraCreateForm" oncomplete="PF('ImalabCabeceraCreateDialog').show()"/>
