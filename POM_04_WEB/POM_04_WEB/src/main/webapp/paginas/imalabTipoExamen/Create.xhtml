@@ -12,8 +12,6 @@
             <h:form id="ImalabTipoExamenCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabTipoExamenController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateImalabTipoExamenLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabTipoExamenController.selected.id}" title="#{bundle.CreateImalabTipoExamenTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabTipoExamenRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateImalabTipoExamenLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{imalabTipoExamenController.selected.descripcion}" title="#{bundle.CreateImalabTipoExamenTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateImalabTipoExamenRequiredMessage_descripcion}"/>
                         <p:outputLabel value="#{bundle.CreateImalabTipoExamenLabel_grupo}" for="grupo" />
