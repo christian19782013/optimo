@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,7 +22,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_SERVICIOS")
@@ -41,10 +40,10 @@ public class ImalabServicios implements Serializable {
     private String descripExamenLab;
     @Column(name = "ESPECIFICACIONES")
     private String especificaciones;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabServicios", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabServicios")
     private List<ImalabPrecio> imalabPrecioList;
     @JoinColumn(name = "TIPO_EXAMEN", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private ImalabTipoExamen imalabTipoExamen;
 
     public ImalabServicios() {

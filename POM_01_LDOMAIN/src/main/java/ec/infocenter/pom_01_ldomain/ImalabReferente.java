@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,7 +21,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_REFERENTE")
@@ -51,7 +50,7 @@ public class ImalabReferente implements Serializable {
     private String cc;
     @Column(name = "PORCENTAJE_REFERENTE")
     private BigInteger porcentajeReferente;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabReferente", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabReferente")
     private List<ImalabDetalleCompra> imalabDetalleCompraList;
 
     public ImalabReferente() {

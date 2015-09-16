@@ -12,7 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -21,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_DESCIENTO")
@@ -36,7 +35,7 @@ public class ImalabDesciento implements Serializable {
     private BigDecimal id;
     @Column(name = "DESCRIPCION")
     private String descripcion;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabDesciento", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabDesciento")
     private List<ImalabPrecio> imalabPrecioList;
 
     public ImalabDesciento() {

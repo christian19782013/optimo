@@ -13,7 +13,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,7 +25,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_PRECIO")
@@ -46,12 +45,12 @@ public class ImalabPrecio implements Serializable {
     @Column(name = "VALOR")
     private BigInteger valor;
     @JoinColumn(name = "APLICA_DESCUENTO", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private ImalabDesciento imalabDesciento;
     @JoinColumn(name = "SERVICIOS", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private ImalabServicios imalabServicios;
-    @OneToMany(mappedBy = "imalabPrecio", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "imalabPrecio")
     private List<ImalabDetalleCompra> imalabDetalleCompraList;
 
     public ImalabPrecio() {

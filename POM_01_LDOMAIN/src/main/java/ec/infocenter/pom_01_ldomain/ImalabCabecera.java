@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,7 +25,7 @@ import javax.persistence.TemporalType;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_CABECERA")
@@ -35,10 +34,6 @@ import javax.persistence.TemporalType;
 public class ImalabCabecera implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    
-    //ESTE COMENTARIO LO COLOCO YO DESDE LA DELL
-    //PRUEBA
-    //locuas
     @Id
     @Basic(optional = false)
     @Column(name = "ID")
@@ -48,13 +43,13 @@ public class ImalabCabecera implements Serializable {
     private Date fechaFactura;
     @Column(name = "NUMERO_FACTURA")
     private String numeroFactura;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabCabecera", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabCabecera")
     private List<ImalabDetalleCompra> imalabDetalleCompraList;
     @JoinColumn(name = "CLIENTE", referencedColumnName = "ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private ImalabCliente imalabCliente;
     @JoinColumn(name = "DATOS_RUC", referencedColumnName = "ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private ImalabDatosRuc imalabDatosRuc;
 
     public ImalabCabecera() {

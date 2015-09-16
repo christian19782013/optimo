@@ -11,7 +11,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -20,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_CLIENTE")
@@ -43,7 +42,7 @@ public class ImalabCliente implements Serializable {
     private String direccion;
     @Column(name = "EMAIL")
     private String email;
-    @OneToMany(mappedBy = "imalabCliente", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "imalabCliente")
     private List<ImalabCabecera> imalabCabeceraList;
 
     public ImalabCliente() {

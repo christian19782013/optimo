@@ -13,7 +13,6 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,7 +21,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_TIPO_EXAMEN")
@@ -40,7 +39,7 @@ public class ImalabTipoExamen implements Serializable {
     private String descripcion;
     @Column(name = "GRUPO")
     private BigInteger grupo;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabTipoExamen", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "imalabTipoExamen")
     private List<ImalabServicios> imalabServiciosList;
 
     public ImalabTipoExamen() {

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,7 +20,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author christian
+ * @author Christian
  */
 @Entity
 @Table(name = "IMALAB_DETALLE_COMPRA")
@@ -45,13 +44,13 @@ public class ImalabDetalleCompra implements Serializable {
     @Column(name = "OBSERVACION")
     private String observacion;
     @JoinColumn(name = "CABECERA", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private ImalabCabecera imalabCabecera;
     @JoinColumn(name = "PRECIO_CATALOGO", referencedColumnName = "ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private ImalabPrecio imalabPrecio;
     @JoinColumn(name = "REFERIDO", referencedColumnName = "ID")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private ImalabReferente imalabReferente;
 
     public ImalabDetalleCompra() {

@@ -8,7 +8,6 @@
     <modules>
         <module>POM_02_REMOTO</module>
         <module>POM_03_SERVICIO</module>
-        <module>POM_04_WEB</module>
         <module>POM_01_LDOMAIN</module>
         <module>POM_02_REMOTO2</module>
     </modules>
