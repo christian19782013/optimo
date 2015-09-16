@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabServiciosEditDlg" widgetVar="ImalabServiciosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditImalabServiciosTitle}">
+            <h:form id="ImalabServiciosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabServiciosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditImalabServiciosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabServiciosController.selected.id}" title="#{bundle.EditImalabServiciosTitle_id}" required="true" requiredMessage="#{bundle.EditImalabServiciosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditImalabServiciosLabel_descripExamenLab}" for="descripExamenLab" />
+                        <p:inputText id="descripExamenLab" value="#{imalabServiciosController.selected.descripExamenLab}" title="#{bundle.EditImalabServiciosTitle_descripExamenLab}" required="true" requiredMessage="#{bundle.EditImalabServiciosRequiredMessage_descripExamenLab}"/>
+                        <p:outputLabel value="#{bundle.EditImalabServiciosLabel_especificaciones}" for="especificaciones" />
+                        <p:inputText id="especificaciones" value="#{imalabServiciosController.selected.especificaciones}" title="#{bundle.EditImalabServiciosTitle_especificaciones}" />
+                        <p:outputLabel value="#{bundle.EditImalabServiciosLabel_imalabTipoExamen}" for="imalabTipoExamen" />
+                        <p:selectOneMenu id="imalabTipoExamen" value="#{imalabServiciosController.selected.imalabTipoExamen}" required="true" requiredMessage="#{bundle.EditImalabServiciosRequiredMessage_imalabTipoExamen}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{imalabTipoExamenController.itemsAvailableSelectOne}"
+                                           var="imalabTipoExamenItem"
+                                           itemValue="#{imalabTipoExamenItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabServiciosController.update}" value="#{bundle.Save}" update="display,:ImalabServiciosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ImalabServiciosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabServiciosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

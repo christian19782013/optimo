@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabCabeceraCreateDlg" widgetVar="ImalabCabeceraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateImalabCabeceraTitle}">
+            <h:form id="ImalabCabeceraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabCabeceraController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{imalabCabeceraController.selected.id}" title="#{bundle.CreateImalabCabeceraTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabCabeceraRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_fechaFactura}" for="fechaFactura" />
+                        <p:calendar id="fechaFactura" pattern="MM/dd/yyyy HH:mm:ss" value="#{imalabCabeceraController.selected.fechaFactura}" title="#{bundle.EditImalabCabeceraTitle_fechaFactura}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_numeroFactura}" for="numeroFactura" />
+                        <p:inputText id="numeroFactura" value="#{imalabCabeceraController.selected.numeroFactura}" title="#{bundle.CreateImalabCabeceraTitle_numeroFactura}" />
+                        <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_imalabCliente}" for="imalabCliente" />
+                        <p:selectOneMenu id="imalabCliente" value="#{imalabCabeceraController.selected.imalabCliente}" >
+                            <f:selectItems value="#{imalabClienteController.itemsAvailableSelectOne}"
+                                           var="imalabClienteItem"
+                                           itemValue="#{imalabClienteItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateImalabCabeceraLabel_imalabDatosRuc}" for="imalabDatosRuc" />
+                        <p:selectOneMenu id="imalabDatosRuc" value="#{imalabCabeceraController.selected.imalabDatosRuc}" >
+                            <f:selectItems value="#{imalabDatosRucController.itemsAvailableSelectOne}"
+                                           var="imalabDatosRucItem"
+                                           itemValue="#{imalabDatosRucItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{imalabCabeceraController.create}" value="#{bundle.Save}" update="display,:ImalabCabeceraListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabCabeceraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ImalabCabeceraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

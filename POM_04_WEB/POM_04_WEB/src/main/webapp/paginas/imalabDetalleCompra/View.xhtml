@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ImalabDetalleCompraViewDlg" widgetVar="ImalabDetalleCompraViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewImalabDetalleCompraTitle}">
+            <h:form id="ImalabDetalleCompraViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{imalabDetalleCompraController.selected != null}">
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_id}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.id}" title="#{bundle.ViewImalabDetalleCompraTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_cantidad}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.cantidad}" title="#{bundle.ViewImalabDetalleCompraTitle_cantidad}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_precio}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.precio}" title="#{bundle.ViewImalabDetalleCompraTitle_precio}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_anulado}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.anulado}" title="#{bundle.ViewImalabDetalleCompraTitle_anulado}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_observacion}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.observacion}" title="#{bundle.ViewImalabDetalleCompraTitle_observacion}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_imalabCabecera}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.imalabCabecera}" title="#{bundle.ViewImalabDetalleCompraTitle_imalabCabecera}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_imalabPrecio}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.imalabPrecio}" title="#{bundle.ViewImalabDetalleCompraTitle_imalabPrecio}"/>
+                        <h:outputText value="#{bundle.ViewImalabDetalleCompraLabel_imalabReferente}"/>
+                        <h:outputText value="#{imalabDetalleCompraController.selected.imalabReferente}" title="#{bundle.ViewImalabDetalleCompraTitle_imalabReferente}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="ImalabDetalleCompraViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
