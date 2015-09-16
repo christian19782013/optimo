@@ -7,10 +7,7 @@ package ec.infocenter.pom_01_ldomain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Date;
-import java.util.List;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,34 +31,25 @@ public class ImalabPrecio implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
-    @Basic(optional = false)
     @Column(name = "ID")
     private BigDecimal id;
-    @Basic(optional = false)
     @Column(name = "FECHA_FIJA_PRECIO")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFijaPrecio;
     @Column(name = "VALOR")
-    private Double valor;
+    private BigDecimal valor;
     @JoinColumn(name = "APLICA_DESCUENTO", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private ImalabDesciento imalabDesciento;
     @JoinColumn(name = "SERVICIOS", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
+    @ManyToOne
     private ImalabServicios imalabServicios;
-    @OneToMany(mappedBy = "imalabPrecio")
-    private List<ImalabDetalleCompra> imalabDetalleCompraList;
 
     public ImalabPrecio() {
     }
 
     public ImalabPrecio(BigDecimal id) {
         this.id = id;
-    }
-
-    public ImalabPrecio(BigDecimal id, Date fechaFijaPrecio) {
-        this.id = id;
-        this.fechaFijaPrecio = fechaFijaPrecio;
     }
 
     public BigDecimal getId() {
@@ -81,11 +68,11 @@ public class ImalabPrecio implements Serializable {
         this.fechaFijaPrecio = fechaFijaPrecio;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 
@@ -103,14 +90,6 @@ public class ImalabPrecio implements Serializable {
 
     public void setImalabServicios(ImalabServicios imalabServicios) {
         this.imalabServicios = imalabServicios;
-    }
-
-    public List<ImalabDetalleCompra> getImalabDetalleCompraList() {
-        return imalabDetalleCompraList;
-    }
-
-    public void setImalabDetalleCompraList(List<ImalabDetalleCompra> imalabDetalleCompraList) {
-        this.imalabDetalleCompraList = imalabDetalleCompraList;
     }
 
     @Override
