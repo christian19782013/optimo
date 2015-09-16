@@ -43,7 +43,7 @@ public class ImalabPrecio implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFijaPrecio;
     @Column(name = "VALOR")
-    private BigInteger valor;
+    private Double valor;
     @JoinColumn(name = "APLICA_DESCUENTO", referencedColumnName = "ID")
     @ManyToOne(optional = false)
     private ImalabDesciento imalabDesciento;
@@ -81,11 +81,11 @@ public class ImalabPrecio implements Serializable {
         this.fechaFijaPrecio = fechaFijaPrecio;
     }
 
-    public BigInteger getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(BigInteger valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
