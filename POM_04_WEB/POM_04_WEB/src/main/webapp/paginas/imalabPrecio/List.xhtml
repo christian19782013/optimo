@@ -29,17 +29,15 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabPrecioTitle_id}"/>
+                                <h:outputText value="#{bundle.ListImalabPrecioTitle_imalabServicios}"/>
                             </f:facet>
-                            <h:outputText value="#{item.id}"/>
+                            <h:outputText value="#{item.imalabServicios.imalabTipoExamen.descripcion}-#{item.imalabServicios.descripExamenLab}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabPrecioTitle_fechaFijaPrecio}"/>
+                                <h:outputText value="#{bundle.ListImalabPrecioTitle_imalabDesciento}"/>
                             </f:facet>
-                            <h:outputText value="#{item.fechaFijaPrecio}">
-                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                            </h:outputText>
+                            <h:outputText value="#{item.imalabDesciento.descripcion}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
@@ -47,18 +45,8 @@
                             </f:facet>
                             <h:outputText value="#{item.valor}"/>
                         </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabPrecioTitle_imalabDesciento}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imalabDesciento}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListImalabPrecioTitle_imalabServicios}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.imalabServicios}"/>
-                        </p:column>
+
+
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{imalabPrecioController.prepareCreate}" update=":ImalabPrecioCreateForm" oncomplete="PF('ImalabPrecioCreateDialog').show()"/>
                             <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":ImalabPrecioViewForm" oncomplete="PF('ImalabPrecioViewDialog').show()" disabled="#{empty imalabPrecioController.selected}"/>

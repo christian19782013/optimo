@@ -12,26 +12,28 @@
             <h:form id="ImalabPrecioEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabPrecioController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabPrecioController.selected.id}" title="#{bundle.EditImalabPrecioTitle_id}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_id}"/>
-                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_fechaFijaPrecio}" for="fechaFijaPrecio" />
-                        <p:calendar id="fechaFijaPrecio" pattern="MM/dd/yyyy HH:mm:ss" value="#{imalabPrecioController.selected.fechaFijaPrecio}" title="#{bundle.EditImalabPrecioTitle_fechaFijaPrecio}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_fechaFijaPrecio}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_valor}" for="valor" />
-                        <p:inputText id="valor" value="#{imalabPrecioController.selected.valor}" title="#{bundle.EditImalabPrecioTitle_valor}" />
-                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_imalabDesciento}" for="imalabDesciento" />
-                        <p:selectOneMenu id="imalabDesciento" value="#{imalabPrecioController.selected.imalabDesciento}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_imalabDesciento}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
-                            <f:selectItems value="#{imalabDescientoController.itemsAvailableSelectOne}"
-                                           var="imalabDescientoItem"
-                                           itemValue="#{imalabDescientoItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_imalabServicios}" for="imalabServicios" />
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_imalabServicios}" for="imalabServicios" />
                         <p:selectOneMenu id="imalabServicios" value="#{imalabPrecioController.selected.imalabServicios}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_imalabServicios}">
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{imalabServiciosController.itemsAvailableSelectOne}"
                                            var="imalabServiciosItem"
-                                           itemValue="#{imalabServiciosItem}"/>
+                                           itemValue="#{imalabServiciosItem}" 
+                                           itemLabel="#{imalabServiciosItem.imalabTipoExamen.descripcion}-#{imalabServiciosItem.descripExamenLab}"
+                                           />
                         </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_fechaFijaPrecio}" for="fechaFijaPrecio" />
+                        <p:calendar id="fechaFijaPrecio" pattern="MM/dd/yyyy" value="#{imalabPrecioController.selected.fechaFijaPrecio}" title="#{bundle.EditImalabPrecioTitle_fechaFijaPrecio}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_fechaFijaPrecio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateImalabPrecioLabel_imalabDesciento}" for="imalabDesciento" />
+                        <p:selectOneMenu id="imalabDesciento" value="#{imalabPrecioController.selected.imalabDesciento}" required="true" requiredMessage="#{bundle.EditImalabPrecioRequiredMessage_imalabDesciento}">
+                            <f:selectItems value="#{imalabDescientoController.itemsAvailableSelectOne}"
+                                           var="imalabDescientoItem"
+                                           itemValue="#{imalabDescientoItem}"
+                                           itemLabel="#{imalabDescientoItem.descripcion}"
+                                           />
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditImalabPrecioLabel_valor}" for="valor" />
+                        <p:inputText id="valor" value="#{imalabPrecioController.selected.valor}" title="#{bundle.EditImalabPrecioTitle_valor}" />
+
+
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imalabPrecioController.update}" value="#{bundle.Save}" update="display,:ImalabPrecioListForm:datalist,:growl" oncomplete="handleSubmit(args, 'ImalabPrecioEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ImalabPrecioEditDialog.hide()"/>

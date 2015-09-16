@@ -12,18 +12,18 @@
             <h:form id="ImalabPrecioViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabPrecioController.selected != null}">
-                        <h:outputText value="#{bundle.ViewImalabPrecioLabel_id}"/>
-                        <h:outputText value="#{imalabPrecioController.selected.id}" title="#{bundle.ViewImalabPrecioTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewImalabPrecioLabel_imalabServicios}"/>
+                        <h:outputText value="#{imalabPrecioController.selected.imalabServicios.imalabTipoExamen.descripcion}-#{imalabPrecioController.selected.imalabServicios.descripExamenLab}" title="#{bundle.ViewImalabPrecioTitle_imalabServicios}"/>
+
+                        <h:outputText value="#{bundle.ViewImalabPrecioLabel_imalabDesciento}"/>
+                        <h:outputText value="#{imalabPrecioController.selected.imalabDesciento.descripcion}" title="#{bundle.ViewImalabPrecioTitle_imalabDesciento}"/>
+
                         <h:outputText value="#{bundle.ViewImalabPrecioLabel_fechaFijaPrecio}"/>
                         <h:outputText value="#{imalabPrecioController.selected.fechaFijaPrecio}" title="#{bundle.ViewImalabPrecioTitle_fechaFijaPrecio}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
                         <h:outputText value="#{bundle.ViewImalabPrecioLabel_valor}"/>
                         <h:outputText value="#{imalabPrecioController.selected.valor}" title="#{bundle.ViewImalabPrecioTitle_valor}"/>
-                        <h:outputText value="#{bundle.ViewImalabPrecioLabel_imalabDesciento}"/>
-                        <h:outputText value="#{imalabPrecioController.selected.imalabDesciento}" title="#{bundle.ViewImalabPrecioTitle_imalabDesciento}"/>
-                        <h:outputText value="#{bundle.ViewImalabPrecioLabel_imalabServicios}"/>
-                        <h:outputText value="#{imalabPrecioController.selected.imalabServicios}" title="#{bundle.ViewImalabPrecioTitle_imalabServicios}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="ImalabPrecioViewDialog.hide()"/>
                 </h:panelGroup>
