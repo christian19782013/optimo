@@ -12,8 +12,6 @@
             <h:form id="ImalabReferenteViewForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabReferenteController.selected != null}">
-                        <h:outputText value="#{bundle.ViewImalabReferenteLabel_id}"/>
-                        <h:outputText value="#{imalabReferenteController.selected.id}" title="#{bundle.ViewImalabReferenteTitle_id}"/>
                         <h:outputText value="#{bundle.ViewImalabReferenteLabel_nombre}"/>
                         <h:outputText value="#{imalabReferenteController.selected.nombre}" title="#{bundle.ViewImalabReferenteTitle_nombre}"/>
                         <h:outputText value="#{bundle.ViewImalabReferenteLabel_apellido}"/>

@@ -12,18 +12,18 @@
             <h:form id="ImalabServiciosCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabServiciosController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabServiciosController.selected.id}" title="#{bundle.CreateImalabServiciosTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabServiciosRequiredMessage_id}"/>
-                        <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_descripExamenLab}" for="descripExamenLab" />
-                        <p:inputText id="descripExamenLab" value="#{imalabServiciosController.selected.descripExamenLab}" title="#{bundle.CreateImalabServiciosTitle_descripExamenLab}" required="true" requiredMessage="#{bundle.CreateImalabServiciosRequiredMessage_descripExamenLab}"/>
-                        <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_especificaciones}" for="especificaciones" />
-                        <p:inputText id="especificaciones" value="#{imalabServiciosController.selected.especificaciones}" title="#{bundle.CreateImalabServiciosTitle_especificaciones}" />
                         <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_imalabTipoExamen}" for="imalabTipoExamen" />
                         <p:selectOneMenu id="imalabTipoExamen" value="#{imalabServiciosController.selected.imalabTipoExamen}" required="true" requiredMessage="#{bundle.EditImalabServiciosRequiredMessage_imalabTipoExamen}">
                             <f:selectItems value="#{imalabTipoExamenController.itemsAvailableSelectOne}"
                                            var="imalabTipoExamenItem"
-                                           itemValue="#{imalabTipoExamenItem}"/>
-                        </p:selectOneMenu>
+                                           itemValue="#{imalabTipoExamenItem}" itemLabel="#{imalabTipoExamenItem.descripcion}"/>
+                        </p:selectOneMenu>    
+                        <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_descripExamenLab}" for="descripExamenLab" />
+
+                        <p:inputText id="descripExamenLab" value="#{imalabServiciosController.selected.descripExamenLab}" title="#{bundle.CreateImalabServiciosTitle_descripExamenLab}" required="true" requiredMessage="#{bundle.CreateImalabServiciosRequiredMessage_descripExamenLab}"/>
+                        <p:outputLabel value="#{bundle.CreateImalabServiciosLabel_especificaciones}" for="especificaciones" />
+                        <p:inputText id="especificaciones" value="#{imalabServiciosController.selected.especificaciones}" title="#{bundle.CreateImalabServiciosTitle_especificaciones}" />
+
                     </p:panelGrid>
                     <p:commandButton actionListener="#{imalabServiciosController.create}" value="#{bundle.Save}" update="display,:ImalabServiciosListForm:datalist,:growl" oncomplete="handleSubmit(args,'ImalabServiciosCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="ImalabServiciosCreateDialog.hide()"/>

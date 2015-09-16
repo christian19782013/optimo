@@ -12,8 +12,6 @@
             <h:form id="ImalabReferenteCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabReferenteController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabReferenteController.selected.id}" title="#{bundle.CreateImalabReferenteTitle_id}" required="true" requiredMessage="#{bundle.CreateImalabReferenteRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{imalabReferenteController.selected.nombre}" title="#{bundle.CreateImalabReferenteTitle_nombre}" required="true" requiredMessage="#{bundle.CreateImalabReferenteRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateImalabReferenteLabel_apellido}" for="apellido" />
