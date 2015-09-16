@@ -12,8 +12,6 @@
             <h:form id="ImalabTipoExamenEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{imalabTipoExamenController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditImalabTipoExamenLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{imalabTipoExamenController.selected.id}" title="#{bundle.EditImalabTipoExamenTitle_id}" required="true" requiredMessage="#{bundle.EditImalabTipoExamenRequiredMessage_id}"/>
                         <p:outputLabel value="#{bundle.EditImalabTipoExamenLabel_descripcion}" for="descripcion" />
                         <p:inputText id="descripcion" value="#{imalabTipoExamenController.selected.descripcion}" title="#{bundle.EditImalabTipoExamenTitle_descripcion}" required="true" requiredMessage="#{bundle.EditImalabTipoExamenRequiredMessage_descripcion}"/>
                         <p:outputLabel value="#{bundle.EditImalabTipoExamenLabel_grupo}" for="grupo" />
